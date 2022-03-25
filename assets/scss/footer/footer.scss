@@ -1,0 +1,153 @@
+@import "../variables";
+@import "../fonts";
+
+.footer {
+    background: $footer-background;
+    padding: $footer-padding 0;
+    &__content-bottom {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+    &__logo {
+        a {
+            color: $footer-grey;
+            transition: $transition3;
+            div {
+                &:first-child {
+                    font-size: $font-size40;
+                    font-family: Yellowtail;
+                    text-align: center;
+                }
+                &:last-child {
+                    text-align: center;
+                    font-style: normal;
+                    font-family: OpenSansRegular, sans-serif;
+                    font-size: 9px;
+                    text-transform: uppercase;
+                    letter-spacing: 12px;
+                    font-weight: bold;
+                }
+            }
+            &:hover {
+                color: $text-white;
+            }
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: flex-end;
+        ul {
+            display: flex;
+            grid-gap: 10px;
+            align-items: center;
+            padding: 0;
+            li {
+                a {
+                    box-shadow: 0 0 1px #000000a3;
+                    border-radius: 4px;
+                    color: #212121;
+                    display: grid;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+
+                    width: 32px;
+                    height: 32px;
+                    overflow: hidden;
+                    &::before,
+                    &::after {
+                        transition: $transition3;
+                        align-self: center;
+                        justify-self: center;
+                        top: 0;
+                        width: 32px;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: FontAwesome !important;
+                    }
+                    &::before {
+                        background-color: $footer-icon-background;
+                    }
+                    &::after {
+                        color: $text-white;
+                    }
+
+                    &:hover {
+                        &::before {
+                            transform: translateY(-32px);
+                        }
+                        &::after {
+                            transform: translateY(-32px);
+                        }
+                    }
+                }
+                &:nth-child(1) {
+                    a {
+                        &::before {
+                            content: "\f09a";
+                        }
+                        &::after {
+                            content: "\f09a";
+                            background-color: #3350ae;
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    a {
+                        &::before {
+                            font-size: 20px;
+                            content: "\f167";
+                        }
+                        &::after {
+                            content: "\f167";
+                            font-size: 20px;
+                            background-color: $text-red;
+                        }
+                    }
+                }
+                &:nth-child(3) {
+                    a {
+                        &::before {
+                            content: "\f189";
+                        }
+                        &::after {
+                            content: "\f189";
+                            background-color: #00c4fc;
+                        }
+                    }
+                }
+                &:nth-child(4) {
+                    a {
+                        &::before {
+                            content: "\f16d";
+                        }
+                        &::after {
+                            content: "\f16d";
+                            background: linear-gradient(
+                                90deg,
+                                rgba(131, 58, 180, 1) 0%,
+                                rgba(253, 29, 29, 1) 50%,
+                                rgba(252, 176, 69, 1) 100%
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .footer {
+        padding: $footer-padding-mobile;
+        .footer__content-bottom {
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            .footer__list {
+                justify-content: center;
+            }
+        }
+    }
+}

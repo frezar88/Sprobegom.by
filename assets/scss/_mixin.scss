@@ -1,0 +1,116 @@
+@import "./variables";
+
+@mixin animation($name, $time, $type, $delay) {
+    @if $delay {
+        animation: $name $time forwards $type $delay;
+    } @else {
+        animation: $name $time forwards $type;
+    }
+}
+
+@mixin imputRadio() {
+    input {
+        opacity: 0;
+        display: none;
+    }
+    label {
+        transition: $transition3;
+        display: flex;
+        position: relative;
+        display: flex;
+        grid-gap: 5px;
+        align-items: center;
+        &::before {
+            content: "";
+            border-radius: 2px;
+            width: 15px;
+            height: 15px;
+            border: solid 1px $text-primaryBlack;
+            left: 0;
+            top: 0;
+        }
+    }
+    input:checked {
+        & + label {
+            display: flex;
+            align-items: center;
+            color: $text-red;
+            &::after {
+                position: absolute;
+                order: -1;
+                content: url("/assets/images/icon/check2.svg");
+                width: 10px;
+                height: 10px;
+                top: 0px;
+                left: 3px;
+            }
+            &::before {
+                border: solid 1px $text-red;
+            }
+        }
+    }
+}
+
+@mixin button() {
+    background: $text-red;
+    color: $text-white;
+    background-color: $text-red;
+    border-radius: 4px;
+    border: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+    padding: 15px 13px;
+    transition: $transition3;
+    &:hover {
+        background-color: $text-redHover;
+    }
+}
+
+@mixin inputNumbe() {
+    input[type="number"] {
+        width: 100%;
+        padding: $padding5_10;
+        margin: $margin10_0;
+        font-size: $font-size15;
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+@mixin select() {
+    select {
+        width: 100%;
+        padding: $padding5_10;
+        margin: $margin10_0;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@mixin title($size-font) {
+    @if $size-font {
+        h3 {
+            font-family: OpenSansRegular;
+            font-size: $size-font;
+            color: $text-red;
+            span {
+                font-family: OpenSansBold;
+            }
+        }
+    } @else {
+        h3 {
+            font-family: OpenSansRegular;
+            font-size: $font-size25;
+            color: $text-red;
+            span {
+                font-family: OpenSansBold;
+            }
+        }
+    }
+}
